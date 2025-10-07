@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House Price Prediction</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4 text-primary">🏡 House Price Prediction</h2>
+            <form method="POST">
+              <div class="row g-3">
+                <!-- Numeric Inputs -->
+                <div class="col-md-6">
+                  <label class="form-label">Bedrooms</label>
+                  <input type="number" name="bedrooms" step="any" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Bathrooms</label>
+                  <input type="number" name="bathrooms" step="any" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Sqft Living</label>
+                  <input type="number" name="sqft_living" step="any" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Sqft Lot</label>
+                  <input type="number" name="sqft_lot" step="any" class="form-control" required>
+                </div>
+
+                <!-- Dropdowns -->
+                <div class="col-md-6">
+                  <label class="form-label">Floors</label>
+                  <select name="floors" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option value="1">1 Floor</option>
+                    <option value="1.5">1.5 Floors</option>
+                    <option value="2">2 Floors</option>
+                    <option value="3">3 Floors</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Condition</label>
+                  <select name="condition" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option value="1">Poor</option>
+                    <option value="2">Fair</option>
+                    <option value="3">Average</option>
+                    <option value="4">Good</option>
+                    <option value="5">Excellent</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">City</label>
+                  <select name="city" class="form-select" required>
+                    <option value="">Select City...</option>
+                    <option value="1">Seattle</option>
+                    <option value="2">Redmond</option>
+                    <option value="3">Bellevue</option>
+                    <option value="4">Kirkland</option>
+                    <option value="5">Kent</option>
+                    <!-- Add more encoded city options if needed -->
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">StateZip</label>
+                  <select name="statezip" class="form-select" required>
+                    <option value="">Select...</option>
+                    <option value="98101">98101</option>
+                    <option value="98004">98004</option>
+                    <option value="98033">98033</option>
+                    <option value="98052">98052</option>
+                    <option value="98030">98030</option>
+                  </select>
+                </div>
+
+                <!-- Numeric fields -->
+                <div class="col-md-6">
+                  <label class="form-label">Sqft Above</label>
+                  <input type="number" name="sqft_above" step="any" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Sqft Basement</label>
+                  <input type="number" name="sqft_basement" step="any" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Year Built</label>
+                  <input type="number" name="yr_built" step="any" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Year Renovated</label>
+                  <input type="number" name="yr_renovated" step="any" class="form-control" required>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Predict Price</button>
+              </div>
+            </form>
+
+            <!-- Prediction Output -->
+            {% if prediction %}
+            <div class="alert alert-info mt-4 text-center fs-5">
+              {{ prediction }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
